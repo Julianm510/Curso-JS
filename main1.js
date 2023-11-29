@@ -100,9 +100,9 @@ function agregarAlumno() {
     if (isNaN(nota) || nombre === "" || nombre == null || apellido === "") {
         alert("por favor ingresa valores validos")
         return
-    } else{
+    } else {
         alert("Alumno agregado")
-    
+
     }
 
     let alumno = new Alumno(nombre, apellido, nota)
