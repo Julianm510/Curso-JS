@@ -69,7 +69,7 @@ let lista = [alumno1, alumno2, alumno3, alumno4, alumno5, alumno6, alumno7, alum
 
 
 function filtrarAlumnos() {
-    let palabraClave = prompt("ingresa el nombre del alumno").toUpperCase().trim()
+    let palabraClave = (prompt("ingresa el nombre del alumno").toUpperCase()).trim()
     let resultado = lista.filter((x) => x.nombre.toUpperCase().includes(palabraClave))
 
 
@@ -81,7 +81,9 @@ function filtrarAlumnos() {
 
         if (respuesta == true) {
             agregarAlumno()
+            
         }
+        
     }
 }
 
@@ -102,6 +104,7 @@ function agregarAlumno() {
         return
     } else {
         alert("Alumno agregado")
+        
 
     }
 
@@ -113,5 +116,4 @@ function agregarAlumno() {
 
 }
 
-agregarAlumno()
 
