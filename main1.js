@@ -72,8 +72,10 @@ function filtrarAlumnos() {
     let palabraClave = (prompt("ingresa el nombre del alumno").toUpperCase()).trim()
     let resultado = lista.filter((x) => x.nombre.toUpperCase().includes(palabraClave))
 
+    if (palabraClave === null || palabraClave == ""){
+        alert("Ingresa un valor correcto")
 
-    if (resultado.length > 0) {
+    } else if(resultado.length > 0) {
         console.table(resultado)
     } else {
         alert("no se encontro el Alumno " + palabraClave)
@@ -85,6 +87,8 @@ function filtrarAlumnos() {
         }
         
     }
+
+   
 }
 
 filtrarAlumnos()
