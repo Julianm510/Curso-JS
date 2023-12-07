@@ -4,8 +4,7 @@ body{
 
 .container{
     background-color: red;
-    display: flex;
-    justify-content: center;
+    
 }
 
 h1{
