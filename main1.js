@@ -48,7 +48,7 @@
 // SEGUNDA ENTREGA
 
 
-const Alumno = function (nombre, apellido, nota) {
+const Alumno = function (nombre,apellido,nota) {
     this.nombre = nombre
     this.apellido = apellido
     this.nota = nota

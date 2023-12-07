@@ -1,0 +1,43 @@
+body{
+    background-color: rgb(116, 126, 126);
+}
+
+.container{
+    background-color: red;
+    display: flex;
+    justify-content: center;
+}
+
+h1{
+    display: flex;
+    justify-content: center;
+}
+.button,.boton2{
+    padding: 10px 20px;
+    margin: 10px;
+    border-radius: 5px;
+    background-color:rgb(178, 186, 193);
+    color: rgb(59, 87, 201);
+    font-size: 18px;
+    border: none;
+    cursor: pointer;
+    box-shadow: 2px 2px 5px black;
+    transition: all 0.3 ease;
+}
+
+
+.button:hover{
+    background-color: rgb(172, 172, 233);
+}
+.boton2:hover{
+    background-color: rgb(172, 172, 233);
+}
+
+.input1{
+    border-radius: 5px;
+    margin-left: 80px
+}
+
+.container{
+    background-color: rgb(226, 236, 235);
+}
