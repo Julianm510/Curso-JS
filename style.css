@@ -7,21 +7,18 @@ body{
     justify-content: center;
     padding: 15px;
 }
-.container1{
+.container{
     background-color: rgb(116, 126, 126);
     display: flex;
     justify-content: center;
 }
-.container{
-    display: flex;
-    justify-content: center;
-}
+
 
 h1{
     display: flex;
     justify-content: center;
 }
-.button,.boton2{
+button{
     padding: 10px 20px;
     margin: 10px;
     border-radius: 5px;
@@ -35,18 +32,20 @@ h1{
 }
 
 
-.button:hover{
-    background-color: rgb(172, 172, 233);
-}
-.boton2:hover{
+button:hover{
     background-color: rgb(172, 172, 233);
 }
 
-.input1{
+
+input{
     border-radius: 5px;
     width: 200px;
     height: 30px;
     border: 1x solid black;
     
+}
+
+.nombre{
+    color: red;
 }
 
