@@ -121,3 +121,67 @@ function agregarAlumno() {
 }
 
 
+
+
+
+
+const container = document.createElement("div")
+container.classList.add("listado")
+
+lista.forEach((alumno) => {
+    const card = document.createElement("li")
+
+    const nombre = document.createElement("h2")
+    nombre.textContent = `Nombre: ${alumno.nombre}`
+    card.appendChild(nombre)
+
+    const apellido = document.createElement("h2")
+    apellido.textContent = `Apellido: ${alumno.apellido}`
+    card.appendChild(apellido)
+
+    const nota = document.createElement("h2")
+    nota.textContent = `Nota: ${alumno.nota}`
+    card.appendChild(nota)
+    container.appendChild(card)
+})
+
+const body = document.querySelector("body")
+body.appendChild(container)
+
+form.reset()
+
+})
+
+const body = document.querySelector("body")
+body.appendChild(form)
+
+}
+
+
+
+
+
+let crearTabla = function(listado){
+    let stringtabla = "<tr></tr><th>Nombre</th><td>apellido</td><td>Nota</td></tr>";
+
+    for(let alumno of listado){
+        let fila = "<tr> <td>"
+        fila += alumno.nombre;
+        fila += "</td>"
+
+        fila += "<td>"
+        fila += alumno.apellido;
+        fila += "</td>"
+
+        fila += "<td>"
+        fila += alumno.nota;
+        fila += "</td>"
+
+        fila += "</tr>"
+        stringtabla += fila;
+    } 
+    return stringtabla;
+}
+    crearTabla(lista)
+
+    document.getElementById("tablaAlumnos").innerHTML =  crearTabla(lista);

@@ -8,7 +8,7 @@ const Alumno = function (nombre, apellido, nota) {
 
 
 let alumno1 = new Alumno("Juan", "lopez", 8)
-let alumno2 = new Alumno("Jose", "Gomez", 7)
+let alumno2 = new Alumno("Jose", "Gomez", 7) 
 let alumno3 = new Alumno("Adrian", "Gimenes", 5)
 let alumno4 = new Alumno("Luis", "Suar", 6)
 let alumno5 = new Alumno("Pedro", "Domingues", 4)
@@ -36,33 +36,37 @@ function filtrarAlumnos() {
     const palabraClave = input.trim().toUpperCase()
     const resultado = lista.filter((alumno) => alumno.nombre.toUpperCase().includes(palabraClave))
 
-    if (resultado.length > 0) {
+    if (resultado.length > 0 ) {
 
         const container = document.createElement("div")
-        container.classList.add("container")
+        container.classList.add("contenedor")
 
         resultado.forEach((alumno) => {
-            const card = document.createElement("div")
+            const card = document.createElement("h2")
 
-            const nombre = document.createElement("h2")
-            nombre.textContent = `Nombre: ${alumno.nombre}`
+            const nombre = document.createElement("p")
+            nombre.textContent = `Nombre:  ${alumno.nombre}`
             card.appendChild(nombre)
             nombre.classList.add("nombre")
 
 
-            const apellido = document.createElement("h2")
-            apellido.textContent = `Apellido: ${alumno.apellido}`
+            const apellido = document.createElement("p")
+            apellido.textContent = `Apellido:  ${alumno.apellido}`
             card.appendChild(apellido)
 
-            const nota = document.createElement("h2")
-            nota.textContent = `Nota: ${alumno.nota}`
+            const nota = document.createElement("p")
+            nota.textContent = `Nota:  ${alumno.nota}`
             card.appendChild(nota)
 
             container.appendChild(card)
         })
         body.appendChild(container)
     } else {
-        alert("no se encontro alumno")
+        Swal.fire({
+            title: "Error",
+            text: "No se encontro al Alumno",
+            icon: "error"
+          });
     }
 }
 
@@ -72,6 +76,7 @@ function filtrarAlumnos() {
 function agregarAlumno() {
 
     const form = document.createElement("form")
+    form.classList.add("formulario")
     form.innerHTML = `
     <label for="nombre-input">Nombre:</label>
     <input id= "nombre-input" type="text" step="0.01" required>
@@ -92,39 +97,50 @@ function agregarAlumno() {
         const apellidoInput = document.getElementById("apellido-input").value.trim()
         const notaInput = parseInt(document.getElementById("nota-input").value)
 
-        if (isNaN(notaInput) || nombreInput === "" || apellidoInput === "") {
-            alert("por favor ingresa valores validos.")
+        if (nombreInput == null || nombreInput === "" || apellidoInput == null || apellidoInput === "" ||isNaN(notaInput)  ) {
+            Swal.fire({
+              icon: "error",
+              title: "Oops...",
+              text: "Ingresa valores validos",
+              footer: ''
+            });
             return
         }
 
         const alumno = new Alumno(nombreInput, apellidoInput, notaInput)
 
         if (lista.some((elemento) => elemento.nombre === alumno.nombre && elemento.apellido === alumno.apellido )) {
-            alert("el alumno ya existe")
+            Swal.fire("El Alumno ya existe");
             return
         }
 
         lista.push(alumno)
 
         localStorage.setItem("alumnos", JSON.stringify(lista))
-        alert("se agrego el alumno " + alumno.nombre + " " + alumno.apellido + " a la lista")
+        Swal.fire({
+            title: "Alumno Agregado",
+            text:("se agrego el alumno " + alumno.nombre + " " + alumno.apellido + " a la lista")
+            ,
+            icon: "success"
+          });
+       
 
 
-
-        const container = document.createElement("div")
+        const container = document.createElement("p")
+        container.classList.add("container")
 
         lista.forEach((alumno) => {
-            const card = document.createElement("div")
+            const card = document.createElement("p")
 
-            const nombre = document.createElement("h2")
+            const nombre = document.createElement("h1")
             nombre.textContent = `Nombre: ${alumno.nombre}`
             card.appendChild(nombre)
 
-            const apellido = document.createElement("h2")
+            const apellido = document.createElement("h1")
             apellido.textContent = `Apellido: ${alumno.apellido}`
             card.appendChild(apellido)
 
-            const nota = document.createElement("h2")
+            const nota = document.createElement("h1")
             nota.textContent = `Nota: ${alumno.nota}`
             card.appendChild(nota)
             container.appendChild(card)
